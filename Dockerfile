@@ -6,15 +6,13 @@ WORKDIR /go/src/build
 ENV GOPATH /go/
 RUN go get -v gopkg.in/yaml.v1
 RUN go build -v -o main .
-RUN dos2unix entrypoint.sh
 RUN dos2unix cvs.yml
 
 FROM alpine
 RUN adduser -S -D -H -h /app appuser
 COPY --from=builder /go/src/build/main /app/
 COPY --from=builder /go/src/build/cvs.yml /app/
-COPY --from=builder /go/src/build/entrypoint.sh /app/
 
 USER appuser
 WORKDIR /app
-ENTRYPOINT /app/entrypoint.sh
+ENTRYPOINT /app/main

@@ -25,6 +25,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	log.Print("Started")
 	filename, _ := filepath.Abs("./cvs.yml")
 	yamlFile, err := ioutil.ReadFile(filename)
 	if err != nil {

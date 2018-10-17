@@ -16,6 +16,7 @@ var printf = log.Printf
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	url, ok := data[r.URL.Path]
+
 	printf("%s", r.URL.Path)
 	if !ok {
 		notFound(w, r)
@@ -33,6 +34,9 @@ func main() {
 	}
 
 	err = yaml.Unmarshal(yamlFile, &data)
+	if err != nil {
+		panic(err)
+	}
 
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(":8080", nil))

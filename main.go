@@ -17,16 +17,17 @@ var printf = log.Printf
 func handler(w http.ResponseWriter, r *http.Request) {
 	url, ok := data[r.URL.Path]
 
-	printf("%s", r.URL.Path)
 	if !ok {
+		printf("%s 404", r.URL.Path)
 		notFound(w, r)
 	} else {
+		printf("%s 302", r.URL.Path)
 		redirect(w, r, url, http.StatusFound)
 	}
 }
 
 func main() {
-	log.Print("Started")
+	printf("Started")
 	filename, _ := filepath.Abs("./cvs.yml")
 	yamlFile, err := ioutil.ReadFile(filename)
 	if err != nil {

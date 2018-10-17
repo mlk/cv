@@ -6,25 +6,40 @@ import (
 	"testing"
 )
 
-func Test_Found(t *testing.T) {
+var hasNotFound = false
+var redirectTarget = "noCalled"
+
+func init() {
 	data = make(map[string]string)
 	data["/"] = "fred"
-	hasNotFound := false
+
 	notFound = func(w http.ResponseWriter, r *http.Request) {
 		hasNotFound = true
 	}
 
-	redirectTarget := "noCalled"
 	redirect = func(w http.ResponseWriter, r *http.Request, url string, code int) {
 		redirectTarget = url
 	}
+}
+
+func resetFake() {
+	hasNotFound = false
+	redirectTarget = "noCalled"
+}
+
+func assertEquals(t *testing.T, expected string, actual string) {
+	if actual != expected {
+		t.Logf("Expected %s, but got %s", expected, actual)
+		t.Fail()
+	}
+}
+
+func Test_Found(t *testing.T) {
+	resetFake()
 
 	handler(nil, &http.Request{URL: &url.URL{Path: "/"}})
 
-	if redirectTarget != "fred" {
-		t.Logf("Expected %s, but got %s", "fred", redirectTarget)
-		t.Fail()
-	}
+	assertEquals(t, "fred", redirectTarget)
 
 	if hasNotFound {
 		t.Fail()
@@ -32,24 +47,11 @@ func Test_Found(t *testing.T) {
 }
 
 func Test_Not_Found(t *testing.T) {
-	data = make(map[string]string)
-	data["/"] = "fred"
-	hasNotFound := false
-	notFound = func(w http.ResponseWriter, r *http.Request) {
-		hasNotFound = true
-	}
-
-	redirectTarget := "noCalled"
-	redirect = func(w http.ResponseWriter, r *http.Request, url string, code int) {
-		redirectTarget = url
-	}
+	resetFake()
 
 	handler(nil, &http.Request{URL: &url.URL{Path: "/Fred"}})
 
-	if redirectTarget != "noCalled" {
-		t.Logf("Expected %s, but got %s", "noCalled", redirectTarget)
-		t.Fail()
-	}
+	assertEquals(t, "noCalled", redirectTarget)
 
 	if !hasNotFound {
 		t.Fail()

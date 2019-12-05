@@ -1,3 +1,15 @@
 {
+  "name": "cv",
+  "version": 2,
+  "routes": [
+    {"src": "/",         "status": 301, "headers": { "Location":"/20191205"}},
+    {"src": "/20191205", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1aZveSkFTH5Mm06pKYfXWu2uo0XBqBZ6pJcyZVo18nrI/edit?usp=sharing"}},
+    {"src": "/20180926", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1aZOgQghS9ng0FAaJfQlFboIZ_DLPxIKWa3gvnnd9Vb4/edit?usp=sharing"}},
+    {"src": "/20171109", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1YKN_xx9aQrBsI8Balz1WFEuuuW7z7Km4j593ZCAFGjg/edit?usp=sharing"}},
+    {"src": "/20170830", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1X8r33E7-4YqMqF6X_K8uyB5qZ4r1ZD5o1ZpdYVtNbgI/edit?usp=sharing"}},
+    {"src": "/20160301", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1JQaFf2kiX6sG5dvFzBBV9EuXZZ8FcXC6QaSGjO-2kS4/edit?usp=sharing"}},
+    {"src": "/20141117", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/15-ZIP8KbHPmAjg6qH_2muLdZGrpa4sogD35gV1Dtcio/edit?usp=sharing"}},
+    {"src": "/2016_iwc", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1jtPRGgIIAutSwGzCLAq2eHdolSN16N0WeM0Z15hoAAY/edit?usp=sharing"}}
+  ],
   "alias": ["cv.michael-lloyd-lee.me.uk"]
 }

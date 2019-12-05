@@ -10,17 +10,8 @@ How?
 ---
 This redirection service makes use of the following technologies:
 
-* A tiny GoLang service to handle redirects.
-* Docker to build and execute the GoLang service.
 * [zeit.co NOW](https://zeit.co/) to host this as a serverless component.
 * GitHub/NOW integration to perform continuous deployments. 
-
-To build the project locally via Docker:
-
-```bash
-$ docker build . -t mycv
-$ docker run mycv
-```
 
 To force a deployment of the project:
 

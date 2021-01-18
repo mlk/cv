@@ -2,7 +2,8 @@
   "name": "cv",
   "version": 2,
   "routes": [
-    {"src": "/",         "status": 301, "headers": { "Location":"/20191205"}},
+    {"src": "/",         "status": 301, "headers": { "Location":"/20210118"}},
+    {"src": "/20210118", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1uCIklv0l-8D701jf66BUkyTPii1j9tmFi_BIQEJl9PI/edit?usp=sharing"}},
     {"src": "/20191205", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1aZveSkFTH5Mm06pKYfXWu2uo0XBqBZ6pJcyZVo18nrI/edit?usp=sharing"}},
     {"src": "/20180926", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1aZOgQghS9ng0FAaJfQlFboIZ_DLPxIKWa3gvnnd9Vb4/edit?usp=sharing"}},
     {"src": "/20171109", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1YKN_xx9aQrBsI8Balz1WFEuuuW7z7Km4j593ZCAFGjg/edit?usp=sharing"}},

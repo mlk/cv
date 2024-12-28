@@ -5,7 +5,8 @@
     { "src": "static/*", "use": "@vercel/static" }
   ],
   "routes": [
-    {"src": "/",         "status": 301, "headers": { "Location":"/20220929"}},
+    {"src": "/",         "status": 301, "headers": { "Location":"/20220929"}},    
+    {"src": "/20241228", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1A62Wyg9w3jpLGrnVvqJx8GC52R-Dtva0VAI62WKYEgI/edit?usp=sharing"}},
     {"src": "/20220929", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1UO0IRaAybxuuEytzeFplZndPFzYWNepwIpNPgRk7u9I/edit?usp=sharing"}},
     {"src": "/20210118", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1uCIklv0l-8D701jf66BUkyTPii1j9tmFi_BIQEJl9PI/edit?usp=sharing"}},
     {"src": "/20191205", "status": 301, "headers": { "Location": "https://docs.google.com/document/d/1aZveSkFTH5Mm06pKYfXWu2uo0XBqBZ6pJcyZVo18nrI/edit?usp=sharing"}},
